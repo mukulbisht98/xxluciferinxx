@@ -24,7 +24,7 @@ app.get('/',(req,res)=>{
     res.send("welcome to xxluciferinxx...")
 })
 
-const PORT = 5000
-app.listen(PORT, () => {
+const port = process.env.PORT || 5000
+app.listen(port, () => {
     console.log("successful...open localhost:5000/ on your browser...")
 })
