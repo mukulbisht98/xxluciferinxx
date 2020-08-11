@@ -26,5 +26,5 @@ app.get('/',(req,res)=>{
 
 const PORT = 5000
 app.listen(PORT, () => {
-    console.log("successful...open localhost:5000 on your browser...")
+    console.log("successful...open localhost:5000/ on your browser...")
 })
