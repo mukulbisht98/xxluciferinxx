@@ -52,17 +52,4 @@ router.post('/signin', (req, res) => {
 
         }).catch(err => console.log(err))
 })
-
-// router.post('/forgotpassword', (req, res) => {
-//     const { email } = req.body
-
-//     if (!email)
-//         return res.status(422).json({ error: "feilds can not be empty." })
-
-//     User.findOne({ email }).then(savedUser => {
-//         if (savedUser.email == email) {
-//         }
-//     }).catch(err => console.log(err))
-// })
-
 module.exports = router

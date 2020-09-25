@@ -16,9 +16,10 @@ mongoose.connection.on('error', (err) => {
 })
 
 require('./models/user')
-
+require('./models/list')
 app.use(express.json())
 app.use(require('./routes/auth'))
+app.use(require('./routes/list'))
 
 app.get('/',(req,res)=>{
     res.send("welcome to xxluciferinxx...")
