@@ -4,28 +4,28 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const { MONGOURI } = require('../keys')
 const mongoClient = mongoose.MongoClient
-const List = mongoose.model("List")
+const Posts = mongoose.model("Posts")
 
-router.post('/list', (req, res) => {
+router.post('/post', (req, res) => {
     const { title, data } = req.body
 
     if (!title || !data)
         return res.status(422).json({ error: "feilds can not be empty." })
-    List.findOne({ title }).then(savedData => {
+    Posts.findOne({ title }).then(savedData => {
         if (savedData)
             return res.status(422).json({ error: "Title already exists." })
-        const list = new List({ title, data })
-        list.save()
-            .then(list => {
+        const Posts = new Posts({ title, data })
+        Posts.save()
+            .then(Posts => {
                 res.json({ message: "data saved successfull." })
             }).catch(err => console.log(err))
     }).catch(err => console.log(err))
 })
 
-router.get('/list', (req, res) => {
-    List.find()
-        .then(list =>
-            res.json({ list })
+router.get('/posts', (req, res) => {
+    Posts.find()
+        .then(Posts =>
+            res.json({ Posts })
         ).catch(err => console.log(err))
 })
 module.exports = router
